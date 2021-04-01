@@ -1,4 +1,4 @@
-name: 'Production Release'
+name: 'Release'
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
     name: 'Deploy to Netlify'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository 🛎️
+      - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Set up Node.js
@@ -28,10 +28,10 @@ jobs:
       - name: NPM install
         uses: bahmutov/npm-install@v1
       
-      - name: Build Application 🔧
+      - name: Build Application
         run: npm run build-production
 
-      - name: Deploy 🚀
+      - name: Deploy production to Netlify
         uses: South-Paw/action-netlify-deploy@v1.2.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

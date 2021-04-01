@@ -1,0 +1,82 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins/box-shadow';
+
+.card {
+  @include box-shadow(1px, 1px, 20px, rgba($color: #000000, $alpha: 0.5));
+  background: rgba($color: $bg-secondary, $alpha: 0.1);
+  padding: 30px;
+  border-radius: 10px;
+  margin: 50px 0;
+
+  p {
+    color: $primary-green;
+    font-family: 'Roboto Slab', serif;
+    font-size: 20px;
+    line-height: 2.4;
+  }
+
+  h1, h2, h3, h4, h5, ul {
+    color: $primary-green;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  a {
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    color: $color-code-blocks;
+  }
+
+  pre {
+    border-left: 2px solid $color-code-blocks;
+  }
+
+  blockquote {
+    background: rgba($color: $bg-secondary, $alpha: 0.5);
+    padding: 5px 10px;
+    margin: 0;
+    border-left: 2px solid $color-code-blocks;
+    position: relative;
+
+    &::before {
+      content: '“';
+      font-size: 10rem;
+      position: absolute;
+      right: 0;
+      top: -20px;
+      height: 100%;
+      display: flex;
+      align-items: flex-start;
+      color: rgba($color: $color-code-blocks  , $alpha: 0.40);
+    }
+
+    p {
+      margin-left: 20px;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 20px;
+    background-color: $bg-code-blocks;
+    list-style-type: none;
+    border-left: 2px solid $color-code-blocks;
+
+    li {
+      color: $primary-green;
+      font-family: 'Poppins', sans-serif;
+      margin: 10px 0;
+      font-size: 18px;
+
+      a {
+        font-family: inherit;
+        color: inherit;
+        font-size: inherit;
+        text-decoration: none;
+
+        code {
+          color: $color-code-blocks;
+        }
+      }
+    }
+  }
+}

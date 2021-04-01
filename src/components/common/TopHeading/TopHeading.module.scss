@@ -1,0 +1,28 @@
+@import '../../../styles/variables';
+
+.topHeading {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+
+	&.hasBt30Margin {
+		margin-bottom: 30px;
+	}
+
+	h1 {
+		color: $secondary-green;
+		transition: all 0.2s ease-in-out;
+		margin: 0;
+
+		&:hover {
+      cursor: pointer;
+      color: $secondary-green;
+      transition: all 0.2s ease-in-out;
+    }
+	}
+
+	svg {
+		font-size: 2em;
+		margin-right: 10px;
+	}
+}

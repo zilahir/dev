@@ -1,0 +1,39 @@
+@import '../styles/variables';
+
+html {
+  background: $bg-dark;
+  margin: 0;
+  padding: 0;
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.intro {
+  font-family: 'Poppins', sans-serif;
+  color: $primary-green;
+  font-weight: 500;
+
+  span {
+    font-weight: 600;
+  }
+}
+
+.text {
+  font-family: 'Roboto Slab', serif;
+  color: $primary-green;
+  font-size: 20px;
+  margin-top: 30px;
+  line-height: 2.4;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 900px;
+}
+
+.tableOfContents {
+  margin: 40px 0;
+}

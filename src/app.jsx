@@ -39,9 +39,13 @@ function App() {
 		})
 	}
 
-	useEffect(() => yRange.onChange(value => {
-		setHeaderVisible(value > 0)
-	}), [yRange])
+	useEffect(
+		() =>
+			yRange.onChange(value => {
+				setHeaderVisible(value > 0)
+			}),
+		[yRange],
+	)
 
 	return (
 		<RootContext.Provider
@@ -50,20 +54,16 @@ function App() {
 				setCurrentVisible,
 			}}
 		>
-			<Header
-				isVisible={isHeaderVisible}
-				handleNavigation={handleNavigation}
-			/>
+			<Header isVisible={isHeaderVisible} handleNavigation={handleNavigation} />
 			<div className={styles.container}>
 				<h1 className={styles.intro}>
 					{'{dev} '}
-					<span>
-						– Richard Zilahi
-					</span>
+					<span>– Richard Zilahi</span>
 				</h1>
 				<p className={styles.text}>
 					In this page, I am describing my day-to-day routine, when it comes to
-					setting up a new project, development environmenet, plugins, productivity tools, and more.
+					setting up a new project, development environmenet, plugins,
+					productivity tools, and more.
 				</p>
 				<div className={styles.tableOfContents}>
 					<Select
@@ -74,17 +74,15 @@ function App() {
 						onChange={selected => handleNavigation(selected)}
 					/>
 				</div>
-				{
-					pageContent.map(currentContent => (
-						<Card
-							slug={currentContent.slug}
-							key={currentContent.section}
-							markDownFile={currentContent.markdown}
-							title={`${currentContent.emoji} ${currentContent.section}`}
-							contentRef={currentContent.ref}
-						/>
-					))
-				}
+				{pageContent.map(currentContent => (
+					<Card
+						slug={currentContent.slug}
+						key={currentContent.section}
+						markDownFile={currentContent.markdown}
+						title={`${currentContent.emoji} ${currentContent.section}`}
+						contentRef={currentContent.ref}
+					/>
+				))}
 			</div>
 		</RootContext.Provider>
 	)

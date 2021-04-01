@@ -24,17 +24,20 @@ const contents = {
 		{ section: 'Releasing', markdown: ReleasingDocument, emoji: '🚀' },
 		{ section: 'Miscellaneous', markdown: MiscDocument, emoji: '📌' },
 	],
-	createTableOfContent: () => contents.tableOfContents.map(currentContent => ({
-		value: slugify(currentContent.section).toLowerCase(),
-		label: `${currentContent.emoji} ${currentContent.section}`,
-	})),
+	createTableOfContent: () =>
+		contents.tableOfContents.map(currentContent => ({
+			value: slugify(currentContent.section).toLowerCase(),
+			label: `${currentContent.emoji} ${currentContent.section}`,
+		})),
 	getAllContent: () => {
-		const temporaryArray = contents.tableOfContents.map((currentContent, index) => ({
-			...currentContent,
-			order: index + 1,
-			slug: slugify(currentContent.section).toLowerCase(),
-			ref: useRef(null),
-		}))
+		const temporaryArray = contents.tableOfContents.map(
+			(currentContent, index) => ({
+				...currentContent,
+				order: index + 1,
+				slug: slugify(currentContent.section).toLowerCase(),
+				ref: useRef(null),
+			}),
+		)
 		return sortBy(temporaryArray, 'order')
 	},
 }

@@ -40,50 +40,45 @@ export const titleVariants = {
 	},
 }
 
-const Header = ({
-	isVisible,
-	handleNavigation,
-}) => {
+const Header = ({ isVisible, handleNavigation }) => {
 	const { currentVisible } = useContext(RootContext)
 
 	return (
 		<AnimatePresence>
-			{
-				isVisible && (
-					<motion.header
-						className={styles.headerRoot}
-						variants={animationVariants}
-						initial="hidden"
-						animate={isVisible ? 'visible' : 'hidden'}
-						exit="exit"
-					>
-						<div className={styles.innerContainer}>
-							<AnimatePresence>
-								<motion.p
-									variants={titleVariants}
-									animate={{
-										opacity: 1,
-									}}
-									initial={{
-										opacity: 0,
-									}}
-								>
-									{currentVisible}
-								</motion.p>
-							</AnimatePresence>
-							<div className={styles.dropdownContainer}>
-								<Select
-									options={contents.createTableOfContent()}
-									styles={dropdownStyles}
-									placeholder="# Table of content"
-									isSearchable={false}
-									onChange={selected => handleNavigation(selected)}
-								/>
-							</div>
+			{isVisible && (
+				<motion.header
+					className={styles.headerRoot}
+					variants={animationVariants}
+					initial="hidden"
+					animate={isVisible ? 'visible' : 'hidden'}
+					exit="exit"
+				>
+					<div className={styles.innerContainer}>
+						<AnimatePresence>
+							<motion.p
+								variants={titleVariants}
+								animate={{
+									opacity: 1,
+								}}
+								initial={{
+									opacity: 0,
+								}}
+							>
+								{currentVisible}
+							</motion.p>
+						</AnimatePresence>
+						<div className={styles.dropdownContainer}>
+							<Select
+								options={contents.createTableOfContent()}
+								styles={dropdownStyles}
+								placeholder="# Table of content"
+								isSearchable={false}
+								onChange={selected => handleNavigation(selected)}
+							/>
 						</div>
-					</motion.header>
-				)
-			}
+					</div>
+				</motion.header>
+			)}
 		</AnimatePresence>
 	)
 }

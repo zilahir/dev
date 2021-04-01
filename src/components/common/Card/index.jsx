@@ -1,6 +1,4 @@
-import React, {
-	useContext, useEffect, useState, useCallback,
-} from 'react'
+import React, { useContext, useEffect, useState, useCallback } from 'react'
 import gfm from 'remark-gfm'
 import PropTypes from 'prop-types'
 import ReactMarkdown from 'react-markdown'
@@ -11,16 +9,12 @@ import Heading from '../TopHeading'
 import styles from './Card.module.scss'
 import useEventListener from '../../../hooks/useEventListener'
 
-const Card = ({
-	markDownFile,
-	slug,
-	title,
-	contentRef,
-}) => {
+const Card = ({ markDownFile, slug, title, contentRef }) => {
 	const [parsedMarkDown, setParsedMarkDown] = useState()
 	const { setCurrentVisible, currentVisible } = useContext(RootContext)
 	useEffect(() => {
-		fetch(markDownFile).then(parsed => parsed.text())
+		fetch(markDownFile)
+			.then(parsed => parsed.text())
 			.then(markdown => {
 				setParsedMarkDown(markdown)
 			})
@@ -28,7 +22,7 @@ const Card = ({
 
 	const scrollHandler = useCallback(() => {
 		const { y } = contentRef.current.getBoundingClientRect()
-		if (y < 0 && (currentVisible !== title)) {
+		if (y < 0 && currentVisible !== title) {
 			setCurrentVisible(title)
 		}
 	}, [setCurrentVisible, title, currentVisible, contentRef])
@@ -39,11 +33,7 @@ const Card = ({
 		slug,
 	}
 	return (
-		<div
-			className={styles.card}
-			ref={contentRef}
-			id={`#${slug}`}
-		>
+		<div className={styles.card} ref={contentRef} id={`#${slug}`}>
 			<ReactMarkdown
 				skipHtml
 				plugins={[gfm]}

@@ -5,10 +5,7 @@ import classnames from 'classnames'
 
 import styles from './TopHeading.module.scss'
 
-const TopHeading = ({
-	slug,
-	...rest
-}) => {
+const TopHeading = ({ slug, ...rest }) => {
 	const { level, node } = rest
 
 	/**
@@ -25,48 +22,28 @@ const TopHeading = ({
 					<h1>{value}</h1>
 				</a>
 			)
-		} if (depth === 2) {
-			return (
-				<h2>
-					{value}
-				</h2>
-			)
-		} if (depth === 3) {
-			return (
-				<h3>
-					{value}
-				</h3>
-			)
-		} if (depth === 4) {
-			return (
-				<h4>
-					{value}
-				</h4>
-			)
 		}
-		return (
-			<h5>
-				{value}
-			</h5>
-		)
+		if (depth === 2) {
+			return <h2>{value}</h2>
+		}
+		if (depth === 3) {
+			return <h3>{value}</h3>
+		}
+		if (depth === 4) {
+			return <h4>{value}</h4>
+		}
+		return <h5>{value}</h5>
 	}
 	return (
-		(
-			<div className={classnames(
+		<div
+			className={classnames(
 				styles.topHeading,
 				level === 1 ? styles.hasBt30Margin : '',
 			)}
-			>
-				{
-					level === 1 && (
-						<LinkIcon fontSize="large" htmlColor="#05d577" />
-					)
-				}
-				{
-					renderHeading(level, node.children[0].value)
-				}
-			</div>
-		)
+		>
+			{level === 1 && <LinkIcon fontSize="large" htmlColor="#05d577" />}
+			{renderHeading(level, node.children[0].value)}
+		</div>
 	)
 }
 

@@ -23,6 +23,7 @@ const contents = {
 		{ section: 'Bugs', markdown: BugDocument, emoji: '🐞' },
 		{ section: 'Releasing', markdown: ReleasingDocument, emoji: '🚀' },
 		{ section: 'Miscellaneous', markdown: MiscDocument, emoji: '📌' },
+		{ section: 'NPM', markdown: undefined },
 	],
 	createTableOfContent: () =>
 		contents.tableOfContents.map(currentContent => ({

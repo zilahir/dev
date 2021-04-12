@@ -80,8 +80,7 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
-      "yarn lint:js",
-      "git add"
+      "yarn lint:js"
     ]
   }
 }

@@ -31,3 +31,11 @@
 		flex: 1;
 	}
 }
+
+.warningContainer {
+	padding: 20px;
+	font-size: 16px;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	background: rgba($color: $warning-red, $alpha: 1);
+}

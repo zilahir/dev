@@ -44,42 +44,48 @@ const Header = ({ isVisible, handleNavigation }) => {
 	const { currentVisible } = useContext(RootContext)
 
 	return (
-		<AnimatePresence>
-			{isVisible && (
-				<motion.header
-					className={styles.headerRoot}
-					variants={animationVariants}
-					initial="hidden"
-					animate={isVisible ? 'visible' : 'hidden'}
-					exit="exit"
-				>
-					<div className={styles.innerContainer}>
-						<AnimatePresence>
-							<motion.p
-								variants={titleVariants}
-								animate={{
-									opacity: 1,
-								}}
-								initial={{
-									opacity: 0,
-								}}
-							>
-								{currentVisible}
-							</motion.p>
-						</AnimatePresence>
-						<div className={styles.dropdownContainer}>
-							<Select
-								options={contents.createTableOfContent()}
-								styles={dropdownStyles}
-								placeholder="# Table of content"
-								isSearchable={false}
-								onChange={selected => handleNavigation(selected)}
-							/>
+		<>
+			<AnimatePresence>
+				{isVisible ? (
+					<motion.header
+						className={styles.headerRoot}
+						variants={animationVariants}
+						initial="hidden"
+						animate={isVisible ? 'visible' : 'hidden'}
+						exit="exit"
+					>
+						<div className={styles.innerContainer}>
+							<AnimatePresence>
+								<motion.p
+									variants={titleVariants}
+									animate={{
+										opacity: 1,
+									}}
+									initial={{
+										opacity: 0,
+									}}
+								>
+									{currentVisible}
+								</motion.p>
+							</AnimatePresence>
+							<div className={styles.dropdownContainer}>
+								<Select
+									options={contents.createTableOfContent()}
+									styles={dropdownStyles}
+									placeholder="# Table of content"
+									isSearchable={false}
+									onChange={selected => handleNavigation(selected)}
+								/>
+							</div>
 						</div>
+					</motion.header>
+				) : (
+					<div className={styles.warningContainer}>
+						This is <code>beta</code>! I am constantly working on this
 					</div>
-				</motion.header>
-			)}
-		</AnimatePresence>
+				)}
+			</AnimatePresence>
+		</>
 	)
 }
 

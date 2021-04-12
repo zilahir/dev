@@ -14,7 +14,7 @@ import MiscDocument from '../markdowns/Misc.md'
 
 const contents = {
 	tableOfContents: [
-		{ section: 'DEMO', markdown: GetStarted, emoji: '👋' },
+		{ section: 'Hello', markdown: GetStarted, emoji: '👋' },
 		{ section: 'IDE', markdown: IDEDocument, emoji: '✏️' },
 		{ section: 'GIT', markdown: GITDocument, emoji: '🔖' },
 		{ section: 'Linters', markdown: LinterDocument, emoji: '🚨 💅' },

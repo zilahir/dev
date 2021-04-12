@@ -13,3 +13,15 @@ Privdes a `GUI` to the `mongoDB` instances, if needed. Comes handy, when you mon
 - [React DevTools](https://github.com/facebook/react/tree/master/packages/react-devtools)
 
 `React DevTools` is a browser extension developed inhouse by facebook. It provides profiling capabilities, and different debug possibiities. Read more [here](https://reactjs.org/docs/optimizing-performance.html#profiling-components-with-the-chrome-performance-tab) or watch [this](https://www.youtube.com/watch?v=DQjMiKEwl_E) by [Kent C. Dodds](https://twitter.com/kentcdodds). It sure as hell worh it!.
+
+- [iTerm2](https://github.com/gnachman/iTerm2)
+
+iTerm2 is an aternative termina app for Macs. It just has all the missing featues he built-in termina is missing. Plus, its hiighly customizable.
+
+- [Zsh](https://github.com/ohmyzsh/ohmyzsh)
+
+`Zsh`, aka _Z Shel_ is built on the top of the mac OS defaut shell.
+
+- [OhMyZsh](https://github.com/ohmyzsh/ohmyzsh)
+
+OhMyZsh lets you manage diifferent ZSH profiles, and different plugins. ZSH, and OhMyZsh are both definiely worth checking out of you are not familiar with them. I literay can't imagine my day withou them.

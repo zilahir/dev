@@ -74,15 +74,18 @@ function App() {
 						onChange={selected => handleNavigation(selected)}
 					/>
 				</div>
-				{pageContent.map(currentContent => (
-					<Card
-						slug={currentContent.slug}
-						key={currentContent.section}
-						markDownFile={currentContent.markdown}
-						title={`${currentContent.emoji} ${currentContent.section}`}
-						contentRef={currentContent.ref}
-					/>
-				))}
+				{pageContent.map(
+					currentContent =>
+						currentContent.markdown && (
+							<Card
+								slug={currentContent.slug}
+								key={currentContent.section}
+								markDownFile={currentContent.markdown}
+								title={`${currentContent.emoji} ${currentContent.section}`}
+								contentRef={currentContent.ref}
+							/>
+						),
+				)}
 			</div>
 		</RootContext.Provider>
 	)

@@ -81,7 +81,7 @@ const Header = ({ isVisible, handleNavigation }) => {
 					</motion.header>
 				) : (
 					<div className={styles.warningContainer}>
-						This is <code>beta</code>! I am constantly working on this
+						This is <code>beta</code>! I am constantly working on this!
 					</div>
 				)}
 			</AnimatePresence>
